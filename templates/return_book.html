@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+</head>
+<body>
+
+<h2>Return Book</h2>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<form method="POST">
+
+    <label>Select Student:</label>
+    <select name="student_id">
+        {% for student in students %}
+            <option value="{{ student[2] }}">
+                {{ student[1] }} ({{ student[2] }})
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label>Select Book:</label>
+    <select name="book_id">
+        {% for book in books %}
+            <option value="{{ book[2] }}">
+                {{ book[1] }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <button type="submit">Return Book</button>
+
+</form>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

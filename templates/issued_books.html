@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issued Books</title>
+</head>
+<body>
+
+<h2>Issued Books Records</h2>
+
+<table class="table table-bordered table-striped">
+<tr>
+    <th>Book</th>
+    <th>Student</th>
+    <th>Issue Date</th>
+    <th>Due Date</th>
+    <th>Fine (₹)</th>
+</tr>
+
+{% for record in records %}
+<tr>
+    <td>
+        {{ record[0] }} <br>
+        <small>ID: {{ record[1] }}</small>
+    </td>
+
+    <td>
+        {{ record[2] }} <br>
+        <small>ID: {{ record[3] }}</small>
+    </td>
+
+    <td>{{ record[4] }}</td>
+    <td>{{ record[5] }}</td>
+    <td>
+        {% if record[6] > 0 %}
+            <span style="color:red;">₹{{ record[6] }}</span>
+        {% else %}
+            No Fine
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
